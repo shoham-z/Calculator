@@ -44,6 +44,7 @@ def main():
             print(exercise, end='')
         elif event == 'C':
             window[0].update(value='', append=False)
+            exercise = ''
         else:
             calculation = values[0].split('\n')[-1]
             exercise, operation_not_supported = calc.calculate(calculation)
