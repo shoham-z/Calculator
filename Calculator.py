@@ -1,4 +1,4 @@
-OPERATIONS = ['+', '-', '*', 'X', 'x', '/', ':', '^', '%']
+OPERATORS = ['+', '-', '*', 'X', 'x', '/', ':', '^', '%']
 
 
 def add(num1, num2):
@@ -100,8 +100,8 @@ def percent(num):
 
 def find_operation(question):
     for arg in question:
-        if arg in OPERATIONS:
-            operation = OPERATIONS[OPERATIONS.index(arg)]
+        if arg in OPERATORS:
+            operation = OPERATORS[OPERATORS.index(arg)]
             return question.find(arg)
     return -1
 
@@ -120,21 +120,21 @@ def calculate(question):
         if operation_index > 0:
             first_number = question[:operation_index]
             operation = question[operation_index]
-            second_number = question[operation_index + 1:]
+            second_number = question[operation_index + 1:] # add if that checks if one of the operators are in this string
             if '%' in first_number:
                 first_number = percent(first_number)
             if '%' in second_number:
                 second_number = percent(second_number)
             if first_number != '' and second_number != '':
-                if operation == OPERATIONS[0]:
+                if operation == OPERATORS[0]:
                     solution = add(float(first_number), float(second_number))
-                elif operation == OPERATIONS[1]:
+                elif operation == OPERATORS[1]:
                     solution = sub(float(first_number), float(second_number))
-                elif operation in OPERATIONS[2:5]:
+                elif operation in OPERATORS[2:5]:
                     solution = multiply(float(first_number), float(second_number))
-                elif operation in OPERATIONS[5:7]:
+                elif operation in OPERATORS[5:7]:
                     solution = divide(float(first_number), float(second_number))
-                elif operation == OPERATIONS[7]:
+                elif operation == OPERATORS[7]:
                     solution = power(float(first_number), float(second_number))
                 exercise = str(first_number) + ' ' + str(operation) + ' ' + str(second_number) + ' = ' + str(solution)
                 return exercise, False

@@ -12,15 +12,15 @@ def main():
     sg.set_options(font=bigger_font)
     sg.theme('DarkAmber')  # Add a touch of color
     # All the stuff inside your window.
-    layout = [[sg.Multiline(reroute_stdout=True, autoscroll=True, size=(20, 6))],
-              [sg.Button(button_text='1', size=2), sg.Button(button_text='2', size=2),
-               sg.Button(button_text='3', size=2), sg.Button(button_text='+', size=2),
+    layout = [[sg.Multiline(reroute_stdout=True, autoscroll=True, size=(20,4))],
+              [sg.Button(button_text='7', size=2), sg.Button(button_text='8', size=2),
+               sg.Button(button_text='9', size=2), sg.Button(button_text='+', size=2),
                sg.Button(button_text='C', size=2)],
               [sg.Button(button_text='4', size=2), sg.Button(button_text='5', size=2),
                sg.Button(button_text='6', size=2), sg.Button(button_text='-', size=2),
                sg.Button(button_text='%', size=2)],
-              [sg.Button(button_text='7', size=2), sg.Button(button_text='8', size=2),
-               sg.Button(button_text='9', size=2), sg.Button(button_text='*', size=2),
+              [sg.Button(button_text='1', size=2), sg.Button(button_text='2', size=2),
+               sg.Button(button_text='3', size=2), sg.Button(button_text='*', size=2),
                sg.Button(button_text='^', size=2)],
               [sg.Button(button_text='0', size=10), sg.Button(button_text='/', size=2),
                sg.Button(button_text='⌫', size=2)],
@@ -46,7 +46,7 @@ def main():
             window[0].update(value='', append=False)
             exercise = ''
         else:
-            calculation = values[0].split('\n')[-1]
+            calculation = exercise.split('\n')[-1]
             exercise, operation_not_supported = calc.calculate(calculation)
             if operation_not_supported:
                 print('\n' + exercise)
